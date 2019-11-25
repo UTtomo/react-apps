@@ -21,22 +21,23 @@ class Todo extends Component{
     addTodo = () => {
       const{todos,name}=this.state;
       this.setState({
-        todos: {...todos,name}
+        todos.concat([{...todos,name}])
       });
     }
     
   
 
 render(){
-  const {todos}=this.state;
+  const {todos} = this.state;
 
   return (<div>
       <input type="text"  onInput={this.onInput}/>
       <button onClick={this.addTodo}>登録</button>
       <ul>
         {/* mapでリストに変換 */}
-      {todos.map((todo,index) =><li key ={index}>{todo}</li>)}
+      {todos.map((todo,index) => <li key ={index}> {todo} </li> )}
     </ul>
+
   </div>);
 }
 }
