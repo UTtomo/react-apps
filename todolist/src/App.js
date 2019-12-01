@@ -21,7 +21,7 @@ class Todo extends Component{
     addTodo = () => {
       const{todos,name}=this.state;
       this.setState({
-        todos.concat([{...todos,name}])
+        todosconcat([{...todos,name}])
       });
     }
     

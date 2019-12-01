@@ -1,57 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 
 
-// Reactコンポーネントクラス「Timer」を宣言
+class Timer extends React.Component{
 
-    //初期化　
-                                     // （4）
-       
-        // remaining にprops.secondsを代入する(state)        
-            // （2）
-      
-    
-      // state.remainingが正の数なら1秒減じる関数countDownを定義
-      countDown() {
-          //
-          // reaminingが０より大きい時
-          
-              //  prevState にremainingに今の値-1を代入
-               
+  constructor(props){
+    super(props);
+    this.state={your_name: 'tomochi', seconds: '180'}
 
+  }
+  Setname(){  
+    console.log("Setting time");
+  }
+  Countdown(){
 
-      }
-    
-      // 初期化時に、countDownメソッドを1秒ごとに呼び出すタイマーを設定（DOMの読み込み前）
-      componentDidMount() {    
-        // 1000ms毎にcountDownを呼び出す                  // （5）
-        
-      }
-    
-      // 終了処理として、タイマーをクリアする
-      componentWillUnmount() {  
-        // intervalをクリアする                   // （6）
-        
-      }
-    
-      // Timerコンポーネントが描画する要素を記述
-      render() {
-    
-        
-        
-            {/* //hello, name を表示 */}
-            
-            {/* 秒　seconds remaining を表示 */}
-            
-        
-        
-      
-    }
-    
-    // Propsを通してnameとsecondsを引数として渡して、Timerコンポーネントを生成
-     // （1）
-const element = <Timer name = "Nami" seconds = {180} />;
-    // index.htmlのid=‘root’をもつ要素にelementを挿入
-    // rootの中でelement の表示をする
-ReactDOM.render(element,document.getElementById('root'));
+  }
+  render(){
+    return(
+    <div>
+      <input type="text" name="name" defaultValue={this.props.value} onCharge={this.Setname()} />
+      <h1>Hello {this.state.your_name} </h1>
+      <button onClick={()=>{this.Countdown()}}>Count Down Start!</button>
+    </div>
+    );
+  }
+}
+const element = <Timer name="tomochi" seconds={180} />;
+ReactDOM.render(
+  element,
+  document.getElementById('root')
+);
